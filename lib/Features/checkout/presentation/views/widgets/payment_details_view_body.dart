@@ -1,4 +1,5 @@
 import 'package:checkout_payment/Features/checkout/presentation/views/widgets/payment_method_item.dart';
+import 'package:checkout_payment/Features/checkout/presentation/views/widgets/payment_methods_list_view.dart';
 import 'package:flutter/material.dart';
 
 class PaymentDetailsViewBody extends StatelessWidget {
@@ -8,7 +9,7 @@ class PaymentDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        PaymentMethodItem()
+        PaymentMethodsListView(),
 
       ],
     );
