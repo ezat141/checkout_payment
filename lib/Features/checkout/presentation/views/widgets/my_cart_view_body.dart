@@ -49,7 +49,7 @@ class MyCartViewBody extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(builder: (context){
                 return const PaymentDetailsView();
               }));
-            },
+            }, text: 'Complete Payment',
           ),
           const SizedBox(
             height: 12,
