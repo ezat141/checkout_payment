@@ -8,11 +8,13 @@ class PaymentDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        PaymentMethodsListView(),
-        CustomCreditCard(),
-      ],
+    return  const SingleChildScrollView(
+      child: Column(
+        children: [
+          PaymentMethodsListView(),
+          CustomCreditCard(),
+        ],
+      ),
     );
   }
 }
@@ -27,6 +29,7 @@ class CustomCreditCard extends StatefulWidget {
 class _CustomCreditCardState extends State<CustomCreditCard> {
   String cardNumber = '', expiryDate = '', cardHolderName = '', cvvCode = '';
   bool showBackView = false;
+  final GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,8 +39,27 @@ class _CustomCreditCardState extends State<CustomCreditCard> {
           expiryDate: expiryDate,
           cardHolderName: cardHolderName,
           cvvCode: cvvCode,
+          isHolderNameVisible: true,
           showBackView: showBackView,
           onCreditCardWidgetChange: (value) {},
+        ),
+        CreditCardForm(
+          cardNumber: cardNumber,
+          expiryDate: expiryDate,
+          cardHolderName: cardHolderName,
+          cvvCode: cvvCode,
+          onCreditCardModelChange: (creditModel){
+            cardHolderName = creditModel.cardHolderName;
+            expiryDate = creditModel.expiryDate;
+            cardNumber = creditModel.cardNumber;
+            cvvCode = creditModel.cvvCode;
+            showBackView = creditModel.isCvvFocused;
+            setState(() {
+              
+            });
+
+          },
+          formKey: formKey,
         )
       ],
     );
