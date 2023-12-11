@@ -21,11 +21,11 @@ class PaymentMethodItem extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(15),
         ),
-        shadows: const [
+        shadows:  [
           BoxShadow(
-            color: Color(0xFF34A853),
+            color: isActive ? const Color(0xFF34A853) : Colors.white,
             blurRadius: 4,
-            offset: Offset(0, 0),
+            offset: const Offset(0, 0),
             spreadRadius: 0,
           )
         ],
@@ -35,6 +35,8 @@ class PaymentMethodItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(15), color: Colors.white),
         child: SvgPicture.asset(
           image,
+          height: 24,
+          fit: BoxFit.scaleDown,
           
         ),
       ),
